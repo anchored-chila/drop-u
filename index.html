@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DROP U</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="fondo-urbano">
+    
+<header id="navegacion-principal">
+    <img src="imagenes/logo.png" alt="DROP U 1:1" id="logo-marca">
+    <!-- Nueva caja geométrica para el eslogan -->
+    <div id="eslogan-nav">
+        STREETWEAR 1:1 SIN COMPLICACIONES.
+    </div>
+</header>
+
+    <section id="hero-section">
+        <div class="hero-contenido">
+            <!-- Cuadrícula para el collage de productos reales -->
+            <div class="hero-collage">
+                <img src="imagenes/collage-1.jpg" alt="Detalle de producto">
+                <img src="imagenes/collage-2.jpg" alt="Estilo DROP U">
+                <img src="imagenes/collage-3.jpg" alt="Lifestyle">
+            </div>
+            <!-- El llamado a la acción (CTA) -->
+            <a href="#banner-cronometro" class="hero-boton">VER DROP</a>
+        </div>
+    </section>
+
+        <!-- Cinta de Confianza Logística -->
+    <div id="cinta-operativa">
+        <span>🔥 CALIDAD 1:1 ESTRICTA</span>
+        <span>📦 PAQUETE PERSONALIZADO</span>
+        <span>💸 PAGO A CONTRA ENTREGA</span>
+    </div>
+
+        <!-- Cartel Cinemático de Colección -->
+    <section id="cartel-coleccion">
+        <div class="texto-cartel">
+            <h2>DROP #U-1</h2>
+            <p>LUXURY BASICS. NO COMPROMISES.</p>
+        </div>
+    </section>
+
+    <!-- Banner Superior: Motor de Escasez -->
+    <section id="banner-cronometro">
+        <div class="contenido-cronometro">
+            <h3>PRÓXIMO DROP EN:</h3>
+            <div id="reloj-digital">
+                <span id="dias">00</span>d : 
+                <span id="horas">00</span>h : 
+                <span id="minutos">00</span>m : 
+                <span id="segundos">00</span>s
+            </div>
+        </div>
+    </section>
+
+    <section id="marco-catalogo">
+        
+        <h2 id="titulo-drop">DROP #U-1</h2>
+        
+        <main id="catalogo-contenedor">
+            <div class="producto-streetwear" onclick="abrirProducto('ck-box')">
+                <div class="contenedor-visual">
+                    <img src="articulos/ck_boxers.png" alt="Boxer CK 1:1" class="foto-producto">
+                    <div class="etiqueta-urgencia">QUEDAN 6</div>
+                </div>
+                <div class="info-producto">
+                    <h2>PACK 3 BOXERS CALVIN KLEIN</h2>
+                    <p>Tallas disponibles: S, M, L</p>
+                    <div class="precio-catalogo">
+                        <span class="precio-final">$299 MXN</span>
+                        <span class="precio-tachado">$400 MXN</span>
+                    </div>
+                    <button class="btn-accion">VER DETALLES</button>
+                </div>
+
+            </div>
+            <div class="producto-streetwear" onclick="abrirProducto('supreme-socks')">
+                <div class="contenedor-visual">
+                    <img src="articulos/supreme_socks_w.png" alt="2p Calcetas Supreme" class="foto-producto">
+                    <div class="etiqueta-urgencia">QUEDAN 9</div>
+                </div>
+                <div class="info-producto">
+                    <h2>PACK 2 PARES CALCETAS SUPREME</h2>
+                    <p>Tallas disponibles: TALLA UNICA</p>
+                    <div class="precio-catalogo">
+                        <span class="precio-final">$199 MXN</span>
+                    </div>
+                    <button class="btn-accion">VER DETALLES</button>
+                </div>
+            </div>
+                    <div class="producto-streetwear" onclick="abrirProducto('alo-socks')">
+                <div class="contenedor-visual">
+                    <img src="articulos/alo_socks_w.png" alt="1p Calcetas alo Yoga" class="foto-producto">
+                    <div class="etiqueta-urgencia">ÚLTIMA PIEZA</div>
+                </div>
+                <div class="info-producto">
+                    <h2>1 PAR CALCETAS ALO YOGA</h2>
+                    <p>Tallas disponibles: TALLA UNICA</p>
+                    <div class="precio-catalogo">
+                        <span class="precio-final">$169 MXN</span>
+                    </div>
+                    <button class="btn-accion" >VER DETALLES</button>
+                </div>
+            </div>
+                    </div>
+                    <div class="producto-streetwear" onclick="abrirProducto('supreme-box')">
+                <div class="contenedor-visual">
+                    <img src="articulos/supreme_boxers_w.png" alt="2p Supreme Boxers" class="foto-producto">
+                    <!--<img src="corona-grafiti.png" alt="Detalle grafiti" class="capa-grafiti">-->
+                    <div class="etiqueta-urgencia">ÚLTIMA PIEZA</div>
+                </div>
+                <div class="info-producto">
+                    <h2>PACK 2 BOXERS SUPREME</h2>
+                    <p>Tallas disponibles: M</p>
+                    <div class="precio-catalogo">
+                        <span class="precio-final">$499 MXN</span>
+                    </div>
+                    <button class="btn-accion" >VER DETALLES</button>
+                </div>
+            </div>
+            
+        </main>
+
+    </section>
+    
+    <div id="ventana-modal">
+        <div class="contenido-modal">
+            <span id="cerrar-modal">X</span>
+            <div id="info-dinamica">
+                <div class="carrusel-visual">
+                    <button id="flecha-ant" class="btn-flecha">&#9664;</button>
+                    <!-- Marco de colisión restrictivo para la lupa -->
+                    <div id="marco-zoom" style="overflow: hidden; width: 100%; max-width: 400px; margin: 0 auto; border-radius: 5px; cursor: zoom-in;">
+                        <img id="imagen-modal" src="" alt="Vista a detalle">
+                    </div>
+                    <button id="flecha-sig" class="btn-flecha">&#9654;</button>
+                </div>
+                
+                <h2 id="titulo-modal"></h2>
+                <p id="tallas-modal" style="font-weight: bold;"></p>
+                <div id="contenedor-precio"></div>
+                <p id="obs-modal" style="font-size: 0.9rem; color: #ccc;"></p>    
+                <div class="selector-tallas">
+                    <span class="etiqueta-talla">SELECCIONA TU TALLA:</span>
+                    <div id="contenedor-tallas">
+                        <!-- Botones físicos -->
+                        <button class="btn-talla" onclick="seleccionarTalla(this, 'S')">S</button>
+                        <button class="btn-talla" onclick="seleccionarTalla(this, 'M')">M</button>
+                        <button class="btn-talla" onclick="seleccionarTalla(this, 'L')">L</button>
+                    </div>
+                </div> <!-- Cierre de selector-tallas -->
+
+                <button id="btn-asegurar-drop" onclick="asegurarDrop()">ASEGURAR DROP</button>
+
+            </div> <!-- Cierre de info-dinamica -->
+        </div> <!-- Cierre de contenido-modal -->
+    </div> <!-- Cierre de ventana-modal -->
+
+        <!-- Modal del Protocolo de Compra (Tutorial) -->
+    <div id="modal-tutorial" class="oculto">
+        <div class="contenido-tutorial">
+            <span class="cerrar-tutorial" onclick="cerrarTutorial()">X</span>
+            <h3>PROTOCOLO DE COMPRA</h3>
+            
+            <div class="flujo-pasos">
+                <div class="paso-tutorial">
+                    <span class="icono-paso">📱</span>
+                    <p>1. Envías tu orden por WhatsApp</p>
+                </div>
+                
+                <span class="flecha-paso">➔</span>
+                
+                <div class="paso-tutorial">
+                    <span class="icono-paso">📍</span>
+                    <p>2. Coordinamos entrega en la zona</p>
+                </div>
+                
+                <span class="flecha-paso">➔</span>
+                
+                <div class="paso-tutorial">
+                    <span class="icono-paso">💵</span>
+                    <p>3. Recibes tu pieza y pagas contraentrega</p>
+                </div>
+            </div>
+            
+            <p class="advertencia-tutorial">Sin depósitos previos. Sin envíos por paquetería. Trato directo.</p>
+            
+            <!-- El botón final que verdaderamente ejecuta el puente a la app -->
+            <button id="btn-confirmar-whatsapp" onclick="ejecutarCompraWhatsApp()">ENTENDIDO. ABRIR WHATSAPP</button>
+        </div>
+    </div>
+
+    <!-- Sección de Filosofía y Confianza -->
+    <section id="manifiesto-drop">
+        <div class="contenido-manifiesto">
+            <img src="imagenes/emblema.png" alt="Escudo DROP U 1:1" class="escudo-manifiesto">
+            <div class="texto-manifiesto">
+                 <h2>NUESTRA FILOSOFÍA</h2>
+                <p>En DROP U operamos bajo un estándar inquebrantable: entregarte el estatus, la estética y la calidad de las marcas más exclusivas sin que pagues el sobreprecio de los sitios oficiales. Nos especializamos en piezas 1:1 de calidad superior.</p>
+                <p>Aquí no hay mercancía al azar; cada artículo de nuestro catálogo ha sido sometido a situaciones de uso extremo por nuestro propio equipo antes de publicarse. Si la tela no aguanta el castigo, si el elástico cede en la lavadora o el corte no cuadra, simplemente no entra a nuestro inventario. Te ofrecemos una ventaja económica injusta: la misma experiencia premium, respaldada por el filtro más estricto.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="pie-pagina">
+        <div class="footer-columna">
+            <!-- El atributo src debe apuntar a la ruta exacta de tu logo -->
+            <img src="imagenes/logo.png" alt="DROP U Logo" class="footer-logo">
+            <p>Streetwear 1:1 sin complicaciones.</p>
+        </div>
+
+        <div class="footer-columna">
+            <h4>CONTACTO</h4>
+            <!-- El atributo mailto: abre automáticamente la app de correo del usuario -->
+            <a href="mailto:crew@dropu.com.mx">crew@dropu.com.mx</a>
+            <!-- target="_blank" obliga al navegador a abrir Instagram en otra pestaña -->
+            <a href="https://instagram.com/dropumx" target="_blank">Instagram</a>
+        </div>
+
+        <div class="footer-columna">
+            <h4>NOSOTROS</h4>
+            <!-- Este enlace actuará como el detonador para el modal de la historia -->
+            <a href="#manifiesto-drop" id="btn-historia">Nuestra Filosofía</a>
+        </div>
+    </footer>
+
+    <!-- Zona de derechos de autor estandarizada -->
+    <div class="footer-copyright">
+        <p>&copy; 2026 DROP U 1:1. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="logica.js"></script>
+</body>
+</html>

@@ -1,0 +1,834 @@
+header#navegacion-principal {
+    position: sticky;
+    top: 0; /* Coordenada de anclaje absoluto */
+    z-index: 1000; /* Jerarquía de colisión en el eje Z */
+    /*background: rgba(10, 10, 10, 0.95); /* Cristal oscuro casi opaco */
+    background: rgba(211, 0, 0, 0.915); /* Rojo supreme*/
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box; /* Evita que el padding desborde el ancho de la pantalla */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo-marca {
+    height: 65px; /* Define la altura máxima permitida en el marco */
+    width: auto; /* Fuerza al motor a calcular el ancho para no deformar el diseño */
+    display: block;
+}
+
+#eslogan-nav {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Le da solidez sobre el fondo rojo */
+    font-style: italic; /* Aporta velocidad y actitud callejera */
+}
+
+/* Regla de colisión para dispositivos móviles */
+@media (max-width: 768px) {
+    #eslogan-nav {
+        /* En pantallas pequeñas, reducimos la fuente para que no aplaste el logo */
+        font-size: 0.75rem; 
+        letter-spacing: 1px;
+        text-align: right;
+    }
+}
+
+/* 1. Instrucción maestra para que el scroll sea fluido y no un salto brusco */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Arquitectura de la Hero Section */
+#hero-section {
+    width: 100%;
+    min-height: 80vh; /* Obliga a la sección a ocupar el 80% de la altura de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.hero-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Separación exacta entre el collage y el botón */
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 3. Lógica espacial del Collage */
+.hero-collage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide el espacio en 3 columnas iguales */
+    gap: 15px;
+    width: 100%;
+}
+
+.hero-collage img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover; /* Ajusta la foto sin deformarla */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.5s ease;
+}
+
+/* Alteración geométrica: Sube la imagen del centro para crear el efecto collage */
+.hero-collage img:nth-child(2) {
+    transform: translateY(-30px);
+}
+
+/* 4. Renderizado del Botón de acción */
+.hero-boton {
+    background-color: #d30000;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 50px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    /* Arranca la animación: dura 1.5 segundos y se repite infinitamente */
+    animation: latido-urgencia 1.5s infinite ease-in-out;
+}
+
+/* Respuesta física al pasar el mouse */
+.hero-boton:hover {
+    animation: none; 
+    transform: scale(1.05);
+    background-color: #ff1a1a;
+}
+
+/* Motor matemático del latido */
+@keyframes latido-urgencia {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(211, 0, 0, 0.5); }
+    50% { transform: scale(1.12); box-shadow: 0 4px 30px rgba(211, 0, 0, 1); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(211, 0, 0, 0.5); }
+}
+
+#cinta-operativa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #d30000; /* Rompe la oscuridad y conecta con el botón */
+    padding: 15px 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* En celulares, la cinta se apila para no aplastar el texto */
+@media (max-width: 768px) {
+    #cinta-operativa {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+#cartel-coleccion {
+    position: relative;
+    width: 100%;
+    height: 650px; /* Límite vertical para el formato panorámico */
+    
+    /* Inyecta aquí la ruta de una foto tuya: textura de concreto, tela de cerca, o lifestyle */
+    background-image: url('imagenes/fondo-cartel.jpg'); 
+    background-size: cover;
+    background-position: center;
+    
+    /* El cristal oscuro: un gradiente que oscurece la foto original para no chocar con el texto */
+    background-color: #111111c3; 
+    background-blend-mode: overlay; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #d30000; /* Remate inferior con la identidad de la marca */
+}
+
+.texto-cartel {
+    text-align: center;
+    z-index: 2; /* Fuerza al texto a renderizarse por encima de cualquier fondo */
+}
+
+.texto-cartel h2 {
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8); /* Volumen pesado para separar las letras */
+}
+
+.texto-cartel p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Control espacial para mantener la proporción en celulares */
+@media (max-width: 768px) {
+    #cartel-coleccion {
+        height: 250px;
+    }
+    .texto-cartel h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- Motor de Escasez (Cronómetro) --- */
+#banner-cronometro {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 10px auto; /* Lo pega más al catálogo */
+    background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 100%);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.contenido-cronometro h3 {
+    color: #888;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin: 0 0 10px 0;
+}
+
+#reloj-digital {
+    font-family: 'Courier New', monospace; /* Tipografía matemática/digital */
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d30000;
+    text-shadow: 0 0 10px rgba(211, 0, 0, 0.4);
+}
+
+#catalogo-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 130px;
+    padding: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#banner-promocional {
+    width: 100%;
+    display: block;
+    margin-bottom: 25px; /* Crea un área vacía para separar el banner de la ropa */
+}
+
+#img-banner {
+    width: 100%;
+    height: 800px; /* Límite geométrico de altura para el banner */
+    object-fit: cover; /* Renderizado matemático para llenar el espacio sin deformar */
+    display: block;
+    object-position: center; /* Asegura que el centro de la imagen sea lo principal */
+}
+
+body#fondo-urbano {
+    margin: 0;
+    /* Aquí inyectas la ruta de tu imagen real */
+    background-image: url('imagenes/backgroundimg.png');
+    background-size: cover;
+    background-position: center;
+    /*background-attachment: fixed; */
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+#marco-catalogo {
+    /* El cristal: Color muy oscuro con 70% de opacidad */
+    background: rgba(12, 12, 12, 0.7); 
+    
+    /* Efecto de renderizado: Difumina el grafiti urbano solo detrás del marco */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* Soporte para Safari en iPhone */
+    
+    /* Borde milimétrico, casi invisible, para dar textura */
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    border-radius: 12px; /* Redondea las esquinas del marco */
+    
+    /* Coordenadas espaciales */
+    max-width: 900px;
+    margin: 50px auto; /* Crea el espacio muerto necesario arriba y abajo */
+    padding: 30px 20px;
+    
+    /* Sombra pesada en el eje Z para que parezca que flota sobre el fondo */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+#titulo-drop {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 30px; /* Separa el título exactamente 30px de las tarjetas */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.producto-streetwear {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(25, 25, 25, 0.9);
+    padding: 15px;
+    max-width: 350px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-streetwear:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(211, 0, 0, 0.15); /* Sombra roja sutil que conecta con la identidad de DROP U */
+}
+
+.contenedor-visual {
+    position: relative;
+    width: 100%;
+}
+
+.foto-producto {
+    width: 100%;
+    height: 320px;
+    object-fit: contain; /* Instrucción de ajuste absoluto al frame */
+    display: block;
+    background-color: transparent; /* Deja ver el fondo de la tarjeta en los espacios vacíos */
+}
+
+.capa-grafiti {
+    position: absolute;
+    top: -5%;
+    left: -10%;
+    width: 25%;
+    pointer-events: none;
+}
+
+.etiqueta-urgencia {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Lo ancla a la derecha para no chocar con el grafiti */
+    background-color: #d81919; /* Rojo puro de alerta */
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Le da volumen sobre la foto */
+    z-index: 15; /* Instrucción absoluta para que flote por encima del bóxer */
+    pointer-events: none; /* Evita que estorbe si el usuario hace clic por accidente ahí */
+    animation: vibracion-critica 2s infinite ease-in-out;
+}
+
+/* Contenedor flexible para alinear los números perfectamente */
+.precio-catalogo {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    gap: 12px; /* Área de colisión vacía entre ambos precios */
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* El ancla psicológica: apagada y tachada */
+.precio-tachado {
+    text-decoration: line-through;
+    color: #666666; /* Gris muerto para que el cerebro lo descarte como opción de pago */
+    font-size: 0.95rem;
+}
+
+/* El detonador de compra: resaltado y agresivo */
+.precio-final {
+    color: #00ff00; /* Verde neón (el mismo que programamos en tu archivo logica.js para el modal) */
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.2); /* Ligero resplandor para separarlo del fondo oscuro */
+}
+
+.info-producto {
+    text-align: left;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.btn-accion {
+    width: 100%;
+    display: block; 
+    text-align: center;
+    background-color: #d81919;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#ventana-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* El estado base ahora es invisible pero físicamente presente */
+    opacity: 0;
+    visibility: hidden;
+    /* Motor de interpolación: calcula 300ms de desvanecimiento suave */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.contenido-modal {
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    text-align: center;
+    
+    /* Estado base de la geometría: comprimido al 70% de su tamaño */
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+#imagen-modal {
+    width: 100%;
+    height: 350px;
+    object-fit: contain; 
+    display: block;
+    margin: 0 auto;
+    /* Suaviza la entrada, pero permite el cálculo rápido de las coordenadas */
+    transition: transform 0.2s ease-out;
+}
+
+/* Estado de encendido del zoom */
+#imagen-modal.zoom-activo {
+    transform: scale(2.5); 
+}
+
+#cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.modal-info-operativa {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.precio-modal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.selector-tallas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.etiqueta-talla {
+    color: #888;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#contenedor-tallas {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-talla {
+    background: rgba(25, 25, 25, 0.9);
+    color: #fff;
+    border: 1px solid #444;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Alteración física al seleccionar la talla */
+.btn-talla.seleccionada {
+    background: #d30000;
+    border-color: #d30000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(211, 0, 0, 0.4);
+}
+
+#btn-asegurar-drop {
+    width: 100%;
+    max-width: 320px;
+    background: #00ff00; /* Verde neón para el anclaje de acción */
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btn-asegurar-drop:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.4);
+}
+
+/* Botón de talla muerta (Generador de FOMO) */
+.btn-agotada {
+    background: transparent;
+    color: #c9c8c8; /* Gris oscuro, casi muerto */
+    border: 1px dashed #333;
+    text-decoration: none; /* La línea cruzada */
+    cursor: not-allowed; /* Bloquea la interacción táctil */
+    opacity: 0.8;
+    pointer-events: none; /* Aniquila cualquier intento de clic */
+}
+
+.carrusel-visual {
+    position: relative; /* Define el punto de origen (0,0) para las flechas */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Cálculo matemático para el centro vertical exacto */
+    background: rgba(20, 20, 20, 0.8); /* Fondo oscuro para que se vean sobre fotos blancas */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10; /* Fuerza a las flechas a renderizarse por encima de la imagen */
+    border-radius: 5px;
+}
+
+#flecha-ant {
+    left: 0px; /* Anclaje inamovible al borde izquierdo */
+}
+
+#flecha-sig {
+    right: 0px; /* Anclaje inamovible al borde derecho */
+}
+
+.contenido-manifiesto {
+    display: flex;
+    align-items: center; /* Alinea matemáticamente el centro del texto con el centro del escudo */
+    gap: 40px; /* Área de colisión vacía entre la imagen y las letras */
+}
+
+.escudo-manifiesto {
+    width: 100%;
+    max-width: 280px; /* Límite de crecimiento para que no se trague el frame */
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0; /* Orden estricta para que el texto no aplaste la imagen si falta espacio */
+    border-radius: 12px;
+}
+
+.texto-manifiesto {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .contenido-manifiesto {
+        flex-direction: column; /* Rompe las columnas y apila los elementos hacia abajo */
+        text-align: center;
+    }
+    
+    .escudo-manifiesto {
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+}
+
+#manifiesto-drop {
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto; /* Crea la separación matemática exacta con el catálogo y el footer */
+    padding: 40px;
+    background: rgba(15, 15, 15, 0.85);
+    border-left: 5px solid #d30000; /* Línea de acento rojo de DROP U */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+
+#manifiesto-drop h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#manifiesto-drop p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#manifiesto-drop p:last-child {
+    margin-bottom: 0; /* Limpia el espacio sobrante del último párrafo */
+}
+
+#pie-pagina {
+    background-color: #0a0a0a; /* Fondo casi negro para delimitar el final de la página */
+    color: #ffffff;
+    padding: 60px 40px;
+    display: grid;
+    /* Algoritmo de adaptación automática para el tamaño de las pantallas */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-logo {
+    max-width: 140px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-columna h4 {
+    color: #d30000; /* Reutilizamos el rojo de urgencia para mantener la estética de la marca */
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.footer-columna a, .footer-columna p {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-columna a:hover {
+    color: #ffffff; /* Efecto visual al pasar el cursor */
+}
+
+.footer-copyright {
+    background-color: #000000;
+    color: #444;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85rem;
+}
+
+/* --- Arquitectura visual del Tutorial --- */
+#modal-tutorial {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 3000; /* Prioridad máxima, se renderiza por encima del modal del producto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#modal-tutorial.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contenido-tutorial {
+    background: #111;
+    border-top: 4px solid #d30000;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+.cerrar-tutorial {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.cerrar-tutorial:hover {
+    color: white;
+}
+
+.contenido-tutorial h3 {
+    color: white;
+    letter-spacing: 3px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.flujo-pasos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.paso-tutorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 28%;
+}
+
+.icono-paso {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.paso-tutorial p {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.flecha-paso {
+    color: #d30000;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.advertencia-tutorial {
+    color: #888;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+#btn-confirmar-whatsapp {
+    width: 100%;
+    background: #00ff00;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+}
+
+#btn-confirmar-whatsapp:hover {
+    transform: scale(1.02);
+}
+
+/* Recálculo geométrico para dispositivos móviles */
+@media (max-width: 768px) {
+    .flujo-pasos {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .paso-tutorial {
+        width: 100%;
+        flex-direction: row;
+        text-align: left;
+        gap: 15px;
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+    .icono-paso {
+        margin-bottom: 0;
+    }
+    .flecha-paso {
+        transform: rotate(90deg); /* Apunta hacia abajo */
+        margin: 5px 0;
+    }
+}
+
+/* --- NUEVAS CLASES INTERRUPTOR --- */
+
+/* Cuando JS inyecte esta clase, la opacidad sube a 100% */
+#ventana-modal.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Expansión matemática simultánea de la caja interna */
+#ventana-modal.activo .contenido-modal {
+    transform: scale(1);
+}
+
+@keyframes vibracion-critica {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    10% { transform: rotate(-5deg) scale(1.1); }
+    20% { transform: rotate(5deg) scale(1.1); }
+    30% { transform: rotate(-5deg) scale(1.1); }
+    40% { transform: rotate(5deg) scale(1.1); }
+    50% { transform: rotate(0deg) scale(1); }
+}
