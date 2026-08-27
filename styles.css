@@ -18,7 +18,7 @@ header#navegacion-principal {
     position: sticky;
     top: 0; 
     z-index: 1000; 
-    background: rgba(0, 0, 0, 0.915); 
+    background: rgba(211, 0, 0, 0.915); 
     width: 100%;
     padding: 15px 20px;
     box-sizing: border-box; 
