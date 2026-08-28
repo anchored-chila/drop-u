@@ -178,6 +178,7 @@ header#navegacion-principal {
     padding: 20px;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
 .contenido-cronometro h3 {
@@ -750,9 +751,12 @@ header#navegacion-principal {
     #cartel-coleccion { height: 300px; }
     .texto-cartel h2 { font-size: 2.2rem; letter-spacing: 2px; }
     .texto-cartel p { font-size: 0.9rem; }
-
-    #banner-cronometro { margin: 20px 10px; padding: 15px; }
-    #reloj-digital { font-size: 1.5rem; }
+    
+    #banner-cronometro { 
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px; 
+    }
 
     /* Ajustes internos de la tarjeta en móvil */
     .producto-streetwear { max-width: 100%; }
