@@ -773,7 +773,7 @@ header#navegacion-principal {
     .icono-paso { margin-bottom: 0; }
     .flecha-paso { transform: rotate(90deg); margin: 5px 0; }
 
-    #manifiesto-drop { margin: 30px 10px; padding: 20px; border-left: none; border-top: 5px solid #d30000; }
+    #manifiesto-drop { width: 95%; margin: 30px auto; padding: 20px; border-left: none; border-top: 5px solid #d30000; box-sizing: border-box; }
     .contenido-manifiesto { flex-direction: column; gap: 20px; text-align: center; }
     .escudo-manifiesto { max-width: 180px; }
     #manifiesto-drop h2 { font-size: 1.5rem; }
